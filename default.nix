@@ -82,6 +82,7 @@
         installPhase = ''
           python3 fetch-gradle-dependency.py $out fetch-module ${public-maven-repos-file} ${unique-dependency.module_file.name} ${unique-dependency.module_file.group} ${unique-dependency.module_file.version} ${unique-dependency.module_file.artifact_name} ${unique-dependency.module_file.artifact_dir} ${unique-dependency.module_file.sha_256}
         '';
+        impureEnvVars = [ "http_proxy" "https_proxy" ];
         outputHashAlgo = "sha256";
         outputHash = unique-dependency.module_file.sha_256;
       };
@@ -92,6 +93,7 @@
         installPhase = ''
           python3 fetch-gradle-dependency.py $out fetch-file ${public-maven-repos-file} ${unique-dependency.name} ${unique-dependency.group} ${unique-dependency.version} ${unique-dependency.artifact_name} ${unique-dependency.artifact_dir} ${unique-dependency.sha_256} ${unique-dependency.module_file.artifact_name}
         '';
+        impureEnvVars = [ "http_proxy" "https_proxy" ];
         outputHashAlgo = "sha256";
         outputHash = unique-dependency.sha_256;
       };
@@ -116,6 +118,7 @@
         installPhase = ''
           python3 fetch-gradle-dependency.py $out fetch-module ${public-maven-repos-file} ${unique-dependency.name} ${unique-dependency.group} ${unique-dependency.version} ${unique-dependency.artifact_name} ${unique-dependency.artifact_dir} ${unique-dependency.sha_256}
         '';
+        impureEnvVars = [ "http_proxy" "https_proxy" ];
         outputHashAlgo = "sha256";
         outputHash = unique-dependency.sha_256;
       };
